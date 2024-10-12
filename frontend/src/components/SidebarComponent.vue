@@ -18,7 +18,7 @@
     
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block @click="logout" prepend-icon="mdi-logout" class="btn-logout">Logout</v-btn>
+        <v-btn block @click="logout" prepend-icon="mdi-logout" class="btn-logout text-white">Logout</v-btn>
       </div>
     </template>
   </v-navigation-drawer>
@@ -40,7 +40,8 @@ export default {
       this.$router.push('/');
     },
     logout() {
-      console.log('Logout realizado.');
+      localStorage.removeItem('authToken');
+      this.$router.push('/login');
     },
   },
 };
